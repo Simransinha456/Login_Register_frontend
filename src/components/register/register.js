@@ -25,7 +25,7 @@ function Register() {
         const { name, email, password, reEnterPassword } = user
         if (name && email && password && (password === reEnterPassword)) {    // tino request true hone ke baad post request jayega
             // alert("posted")
-            axios.post("http://localhost:8000/register", user)
+            axios.post("http://localhost:8080/register", user)
                 .then(res => alert(res.data.message))
                 .catch(error => console.error("Axios Error:", error));
 

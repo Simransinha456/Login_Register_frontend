@@ -19,7 +19,7 @@ function Login() {
         }) 
     } 
     const login =() =>{
-        axios.post("http://localhost:8000/login", user)
+        axios.post("http://localhost:8080/login", user)
         .then(res => navigate('/'))
         .catch(error => console.error("Axios Error:", error));
     }
