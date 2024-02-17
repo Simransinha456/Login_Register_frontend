@@ -21,14 +21,15 @@ function Register() {
         })
     }
 
-    const register = () => {
+    const register = async () => {
         const { name, email, password, reEnterPassword } = user
         if (name && email && password && (password === reEnterPassword)) {    // tino request true hone ke baad post request jayega
             // alert("posted")
-            axios.post("http://localhost:8080/register", user)
-                .then(res => alert(res.data.message))
-                .catch(error => console.error("Axios Error:", error));
-
+            const res = await axios.post("http://localhost:8080/register", user)
+            console.log(res.data.message)
+            if (res?.data?.message === "Successfully registered") {
+                navigate("/login")
+            }
         }
         else {
             alert("Invalid input")
